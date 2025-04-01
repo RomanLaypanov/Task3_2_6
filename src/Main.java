@@ -5,7 +5,7 @@ public class Main {
         for (int i = 0; !attempt && (i < 3); ++i) {
             try {
                 RobotConnection connection = robot.getConnection();
-                if (connection != null) { // Проверяем, что соединение установлено
+                if (connection != null) {
                     robot.moveRobotTo(5, 9);
                     attempt = true;
                 } else {
