@@ -1,22 +1,23 @@
 public class Main {
     public static void main(String[] args) {
-
-        Robot robot = new Robot(1, 3);
-
-        robot.robotTurnOn();
-
-        for (int i = 0; i < 3; i++) {
+        Robot robot = new Robot(1,2);
+        boolean attempt = false;
+        for (int i = 0; !attempt && (i < 3); ++i) {
             try {
-                if (robot.getConnection() instanceof RobotConnection) {
-                    robot.moveRobotTo(6, 5);
-
-                    return;
+                RobotConnection connection = robot.getConnection();
+                if (connection != null) { // Проверяем, что соединение установлено
+                    robot.moveRobotTo(5, 9);
+                    attempt = true;
+                } else {
+                    System.out.println("Соединение не удалось установить.");
                 }
-            } catch (RobotConnectionException e) {
-                throw new RobotConnectionException("Соединение не установленно");
-            } finally {
+            }
+            finally {
                 robot.close();
             }
+        }
+        if (!attempt) {
+            throw new RobotConnectionException("Соединение не установленно");
         }
     }
 }
