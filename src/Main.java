@@ -1,7 +1,8 @@
 public class Main {
     public static void main(String[] args) {
-        Robot robot = new Robot(1,2);
+        Robot robot = new Robot(1, 2);
         boolean attempt = false;
+
         for (int i = 0; !attempt && (i < 3); ++i) {
             try {
                 RobotConnection connection = robot.getConnection();
@@ -11,11 +12,11 @@ public class Main {
                 } else {
                     System.out.println("Соединение не удалось установить.");
                 }
-            }
-            finally {
+            } finally {
                 robot.close();
             }
         }
+
         if (!attempt) {
             throw new RobotConnectionException("Соединение не установленно");
         }

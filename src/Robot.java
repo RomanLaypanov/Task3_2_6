@@ -21,7 +21,7 @@ public class Robot implements RobotConnection, RobotConnectionManager {
 
     @Override
     public RobotConnection getConnection() {
-       RobotConnection robotConnection = new RobotConnection() {
+        return new RobotConnection() {
             @Override
             public void moveRobotTo(int x, int y) {
 
@@ -32,6 +32,5 @@ public class Robot implements RobotConnection, RobotConnectionManager {
 
             }
         };
-       return robotConnection;
     }
 }
