@@ -17,7 +17,6 @@ public class Main {
             }
         };
 
-
         Robot.moveRobot(robotConnectionManager, 2, 5);
     }
 }
